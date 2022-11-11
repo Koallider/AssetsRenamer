@@ -1,5 +1,6 @@
 import java.io.File
 import java.io.IOException
+import java.util.UUID
 
 const val path = "/path/to/assets/"
 
@@ -12,7 +13,6 @@ fun main() {
 
     val outputFIle = File(path + outputFilename).printWriter()
 
-    var counter = 0
     var out: String
 
     File(path + filename).forEachLine {
@@ -28,15 +28,14 @@ fun main() {
 
             val newPath: String?
             if(imageMap[pathMatchValue] == null){
-                newPath = pathMatchValue.replace(nameMatch.value, "data$counter.bin")
+                newPath = pathMatchValue.replace(nameMatch.value, UUID.randomUUID().toString())
                 imageMap[pathMatchValue] = newPath
-                counter++
             }else{
                 newPath = imageMap[pathMatchValue]
             }
             out = it.replace(pathMatchValue, newPath!!)
         }
-        outputFIle.write(out)
+        outputFIle.write(out + "\n")
     }
     outputFIle.flush()
     imageMap.forEach { (k, v) ->
