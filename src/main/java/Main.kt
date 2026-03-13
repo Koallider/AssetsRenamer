@@ -2,9 +2,9 @@ import java.io.File
 import java.io.IOException
 import java.util.UUID
 
-const val path = "/path/to/assets/"
+const val path = "assets/"
 
-const val filename = "in.json"
+const val filename = "data.json"
 const val outputFilename = "out.json"
 
 val imageMap = HashMap<String, String>()
@@ -17,8 +17,8 @@ fun main() {
 
     File(path + filename).forEachLine {
 
-        val nameRegex = "[a-zA-Z\\d-_]*\\.[png|PNG]+".toRegex()
-        val pathRegex = """"[a-zA-Z\d-_\/]*\.[png|PNG]+"""".toRegex()
+        val nameRegex = "[a-zA-Z\\d-_\\s]*\\.[pP][nN][gG]".toRegex()
+        val pathRegex = """"[a-zA-Z\d-_\s\/]*\.[pP][nN][gG]"""".toRegex()
         val nameMatch = nameRegex.find(it)
         val pathMatch = pathRegex.find(it)
         out = it
@@ -42,12 +42,12 @@ fun main() {
         try {
             val src = File(path + k)
             if (!src.exists()) {
-                println("File doesn't exist")
+                println("File doesn't exist ${k}")
             }
 
             val dest = File(path + v)
             if (dest.exists()) {
-                println("Destination file already exist")
+                println("Destination file already exist ${v}")
             }
             src.renameTo(dest)
         } catch (e: IOException) {
