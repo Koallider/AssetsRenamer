@@ -20,17 +20,17 @@ fun main() {
             out = "$it\n \"key\": \"$caseName\",\n"
             outputFIle.write(out + "\n")
         } else {
-            out = it.replace(oldValue = "caseName", newValue = "name")
-            out = out.replace(oldValue = "collectionName", newValue = "collection")
-            out = out.replace(oldValue = "casePrice", newValue = "price")
-            out = out.replace(oldValue = "caseImg", newValue = "image")
-            out = out.replace(oldValue = "shopPromoImage", newValue = "promoIcon")
-            out = out.replace(oldValue = "caseSpinBackground", newValue = "collectionBackground")
-            out = out.replace(oldValue = "dropList", newValue = "rarityList")
-            out = out.replace(oldValue = "itemPrice", newValue = "price")
-            out = out.replace(oldValue = "stattrackImg", newValue = "stattrackImage")
-            out = out.replace(oldValue = "skinImg", newValue = "image")
-            out = out.replace(oldValue = "rate", newValue = "dropChance")
+            out = it.replace(oldValue = "\"caseName\"", newValue = "\"name\"")
+            out = out.replace(oldValue = "\"collectionName\"", newValue = "\"collection\"")
+            out = out.replace(oldValue = "\"casePrice\"", newValue = "\"price\"")
+            out = out.replace(oldValue = "\"caseImg\"", newValue = "\"image\"")
+            out = out.replace(oldValue = "\"shopPromoImage\"", newValue = "\"promoIcon\"")
+            out = out.replace(oldValue = "\"caseSpinBackground\"", newValue = "\"collectionBackground\"")
+            out = out.replace(oldValue = "\"dropList\"", newValue = "\"rarityList\"")
+            out = out.replace(oldValue = "\"itemPrice\"", newValue = "\"price\"")
+            out = out.replace(oldValue = "\"stattrackImg\"", newValue = "\"stattrackImage\"")
+            out = out.replace(oldValue = "\"skinImg\"", newValue = "\"image\"")
+            out = out.replace(oldValue = "\"rate\"", newValue = "\"dropChance\"")
             outputFIle.write(out + "\n")
         }
     }
